@@ -2,8 +2,10 @@
 
 ## Tech Stack
 
-* NextJS (App Router)
-* tRPC
-* Tailwind
-* Shadcn
-* Clerk
+- NextJS (App Router)
+- tRPC
+- Tailwind
+- Tailwind Prose
+- Shadcn
+- Clerk
+- Iconify Tailwind
