@@ -12,6 +12,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 export const metadata: Metadata = {
   title: "Web App",
@@ -29,10 +30,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <TRPCReactProvider>
-      <ClerkProvider>
+      <ClerkProvider
+        appearance={{
+          baseTheme: dark,
+        }}
+      >
         <html lang="en">
           <body
-            className={`${geist.variable} dark min-h-dvh bg-gradient-to-br from-rose-400 to-pink-500 antialiased`}
+            className={`${geist.variable} dark min-h-dvh bg-radial from-orange-950 to-neutral-950 antialiased`}
           >
             <header className="bg-card flex h-16 items-center justify-end gap-4 p-4">
               <SignedOut>

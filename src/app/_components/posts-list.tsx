@@ -60,7 +60,7 @@ function PostCard(props: {
       <Card className="w-full flex-row justify-between px-5">
         {props.post.name} - created {props.post.createdAt.toLocaleString()}
         <Button
-          className="bg-transparent hover:bg-red-500"
+          className="hover:to-card bg-transparent shadow-none hover:bg-radial hover:from-red-950"
           onClick={async () =>
             await deletionMutation.mutateAsync({ postId: props.post.id })
           }
@@ -68,7 +68,7 @@ function PostCard(props: {
           {deletionMutation.isPending ? (
             <Spinner size="sm" className="bg-black dark:bg-white" />
           ) : (
-            <span className="icon-[mingcute--delete-fill]"></span>
+            <span className="icon-[mingcute--delete-fill] text-gray-200 hover:text-white"></span>
           )}
         </Button>
       </Card>
