@@ -86,13 +86,13 @@
 }
 
 .dark {
-  --background: var(--color-neutral-800);
+  --background: var(--color-neutral-800); /* changed */
   --foreground: oklch(0.985 0 0);
-  --card: var(--color-pink-950);
-  --card-foreground:  var(--color-pink-100);
+  --card: var(--color-pink-950); /* changed */
+  --card-foreground:  var(--color-pink-100); /* changed */
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: var(--color-pink-950);
+  --primary: var(--color-pink-950); /* changed */
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
