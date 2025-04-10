@@ -1,17 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { api } from "@/trpc/react";
 import { Card } from "@/components/ui/card";
 import { z } from "zod";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@radix-ui/react-tooltip";
-import { Button } from "@/components/ui/button";
 
 export function LatestPost() {
   const utils = api.useUtils();
@@ -25,10 +18,6 @@ export function LatestPost() {
   });
 
   const nameSchema = z.string().trim().min(1);
-
-  useEffect(() => {
-    console.log("hi");
-  }, [isHoveringOverSubmit]);
 
   return (
     <Card className="w-full">
