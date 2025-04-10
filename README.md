@@ -6,6 +6,6 @@
 - tRPC
 - Tailwind
 - Tailwind Prose
+- Iconify Tailwind
 - Shadcn
 - Clerk
-- Iconify Tailwind
