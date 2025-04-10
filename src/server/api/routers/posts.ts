@@ -1,23 +1,27 @@
 import { z } from "zod";
 
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "@/server/api/trpc";
 import { posts } from "@/server/db/schema";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
+import { TRPCError } from "@trpc/server";
 
 export const postsRouter = createTRPCRouter({
-  create: publicProcedure
+  create: protectedProcedure
     .input(z.object({ name: z.string().min(1) }))
     .mutation(async ({ ctx, input }) => {
       await ctx.db.insert(posts).values({
         name: input.name,
+        userId: ctx.auth.userId
       });
     }),
 
-  delete: publicProcedure
+  delete: protectedProcedure
     .input(z.object({ postId: z.number() }))
     .mutation(async ({ ctx, input }) => {
-      const res = await ctx.db.delete(posts).where(eq(posts.id, input.postId));
-      return res.rowsAffected > 0;
+      const res = await ctx.db.delete(posts).where(and(eq(posts.id, input.postId), eq(posts.userId, ctx.auth.userId)));
+      if (res.rowsAffected <= 0) {
+        throw new TRPCError({ code: "UNAUTHORIZED" });
+      }
     }),
 
   getAll: publicProcedure.query(async ({ctx}) => {

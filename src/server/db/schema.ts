@@ -16,6 +16,7 @@ export const posts = createTable(
   "post",
   (d) => ({
     id: d.integer({ mode: "number" }).primaryKey({ autoIncrement: true }),
+    userId: d.text({ mode: 'text' }).notNull(),
     name: d.text({ length: 256 }),
     createdAt: d
       .integer({ mode: "timestamp" })

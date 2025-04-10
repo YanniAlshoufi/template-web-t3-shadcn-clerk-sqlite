@@ -29,12 +29,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <TRPCReactProvider>
-      <ClerkProvider
-        appearance={{
-          baseTheme: dark,
-        }}
-      >
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
+      <TRPCReactProvider>
         <html lang="en">
           <body
             className={`${geist.variable} dark min-h-dvh bg-radial from-orange-950 to-neutral-950 antialiased`}
@@ -51,7 +51,7 @@ export default function RootLayout({
             {children}
           </body>
         </html>
-      </ClerkProvider>
-    </TRPCReactProvider>
+      </TRPCReactProvider>
+    </ClerkProvider>
   );
 }
