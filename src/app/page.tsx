@@ -17,7 +17,7 @@ export default async function Home() {
 
           <SignedOut>
             <Card className="px-5">
-              <h2>Please sign in to add a post! :D</h2>
+              <h2>Please sign in to add a post! :]</h2>
             </Card>
           </SignedOut>
           <SignedIn>
